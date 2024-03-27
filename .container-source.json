@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "distribution": "RockyLinux",
+  "upstream": "https://git.resf.org/sig_core/rocky-kiwi-descriptions.git",
+  "ref": "main",
+  "revision": "f498af952fc62c566c6c836035988967a1c00116"
+}
