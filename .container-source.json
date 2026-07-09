@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "distribution": "RockyLinux",
+  "upstream": "https://git.resf.org/sig_core/kickstarts.git",
+  "ref": "r8",
+  "revision": "7877c7b3c3d003112cbd641037bca6718a6e4e3c"
+}
