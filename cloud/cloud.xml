@@ -1,0 +1,360 @@
+<image>
+  <profiles>
+    <profile name="Core-Cloud" description="Cloud Base Packages">
+      <requires profile="Core-Boot"/>
+    </profile>
+    <!-- Generic package set is a good starting point -->
+    <profile name="Cloud-GenericCloud-Base" description="GenericCloud Base Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-GenericCloud-LVM" description="GenericCloud LVM Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-Azure-Base" description="Azure Base Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-Azure-LVM" description="Azure LVM Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-EC2-Base" description="EC2 Base Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-EC2-LVM" description="EC2 LVM Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-GCE-Base" description="GCE Base Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-GCE-LVM" description="GCE LVM Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+    <profile name="Cloud-OCP-Base" description="OCP Base Image">
+      <requires profile="Core-Cloud"/>
+    </profile>
+  </profiles>
+  <!-- Generic -->
+  <preferences profiles="Cloud-GenericCloud-Base" arch="x86_64,aarch64">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-GenericCloud-LVM" arch="x86_64,aarch64">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- Generic specific to ppc64le -->
+  <preferences profiles="Cloud-GenericCloud-Base" arch="ppc64le">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-GenericCloud-LVM" arch="ppc64le">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" firmware="ofw"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- Generic specific to s390x -->
+  <preferences profiles="Cloud-GenericCloud-Base" arch="s390x">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="zipl" timeout="1"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-GenericCloud-LVM" arch="s390x">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="zipl" timeout="1"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- End Generic -->
+  <!-- Azure -->
+  <preferences profiles="Cloud-Azure-Base" arch="x86_64">
+    <type image="oem" format="vhd-fixed" formatoptions="force_size"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="rootdelay=300 console=ttyS0 earlyprintk=ttyS0  no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" console="serial" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-Azure-LVM" arch="x86_64">
+    <type image="oem" format="vhd-fixed" formatoptions="force_size"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="rootdelay=300 console=ttyS0 earlyprintk=ttyS0  no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-Azure-Base" arch="aarch64">
+    <type image="oem" format="vhd-fixed" formatoptions="force_size"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="rootdelay=300 console=ttyAMA0 earlyprintk=ttyAMA0  no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" console="serial" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-Azure-LVM" arch="aarch64">
+    <type image="oem" format="vhd-fixed" formatoptions="force_size"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="rootdelay=300 console=ttyAMA0 earlyprintk=ttyAMA0  no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- End Azure -->
+  <!-- EC2 -->
+  <preferences profiles="Cloud-EC2-Base" arch="x86_64,aarch64">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0 nvme_core.io_timeout=4294967295 nvme_core.max_retries=10"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-EC2-LVM" arch="x86_64,aarch64">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="console=ttyS0,115200n8 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0 nvme_core.io_timeout=4294967295 nvme_core.max_retries=10"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- End EC2 -->
+  <!-- GCE -->
+  <preferences profiles="Cloud-GCE-Base" arch="x86_64">
+    <type image="oem" format="gce"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="200" firmware="uefi"
+      kernelcmdline="console=ttyS0,38400n8d no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-GCE-Base" arch="aarch64">
+    <type image="oem" format="gce"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="200" firmware="uefi"
+      kernelcmdline="console=ttyAMA0,38400n8d no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-GCE-LVM" arch="x86_64">
+    <type image="oem" format="gce"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="200" firmware="uefi"
+      kernelcmdline="console=ttyS0,38400n8d no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <preferences profiles="Cloud-GCE-LVM" arch="aarch64">
+    <type image="oem" format="gce"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="200" firmware="uefi"
+      kernelcmdline="console=ttyAMA0,38400n8d no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- End GCE -->
+  <!-- OCP -->
+  <preferences profiles="Cloud-OCP-Base" arch="x86_64,aarch64">
+    <type image="oem" format="qcow2"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="console=ttyS0,115200n8 console=tty0 no_timer_check crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M net.ifnames=0 LANG=en_US.UTF-8 transparent_hugepage=never rd.luks=0 rd.md=0 rd.dm=0 rd.lvm.vg=rocky rd.lvm.lv=rocky/root rd.net.timeout.dhcp=10"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1" bls="true"/>
+      <size unit="G">10</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="9000M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <!-- End OCP -->
+  <packages type="image" patternType="plusRecommended" profiles="Core-Cloud">
+    <namedCollection name="core"/>
+    <ignore name="*-firmware"/>
+    <ignore name="alsa-lib"/>
+    <ignore name="biosdevname"/>
+    <ignore name="iprutils"/>
+    <!--<ignore name="langpacks-*"/>
+    <ignore name="langpacks-en"/>-->
+    <ignore name="plymouth"/>
+    <package name="langpacks-en"/>
+    <package name="NetworkManager"/>
+    <package name="bash"/>
+    <package name="chrony"/>
+    <package name="dnf"/>
+    <package name="cloud-init"/>
+    <package name="cloud-utils-growpart"/>
+    <package name="dracut-config-generic"/>
+    <package name="firewalld"/>
+    <package name="gdisk"/>
+    <package name="grub2" arch="x86_64,aarch64,ppc64le"/>
+    <package name="kernel"/>
+    <package name="nfs-utils"/>
+    <package name="rsync"/>
+    <package name="tar"/>
+    <package name="dnf-utils"/>
+    <package name="cockpit-system"/>
+    <package name="cockpit-ws"/>
+    <package name="dhcp-client"/>
+    <package name="python3-jsonschema"/>
+    <package name="qemu-guest-agent"/>
+    <package name="rocky-release"/>
+    <package name="rng-tools"/>
+  </packages>
+  <!-- is this needed? -->
+  <packages type="image" patternType="plusRecommended" profiles="Cloud-GenericCloud-Base,Cloud-GenericCloud-LVM">
+    <package name="qemu-guest-agent"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="Cloud-Azure-Base,Cloud-Azure-LVM">
+    <package name="WALinuxAgent"/>
+    <package name="hyperv-daemons"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="Cloud-GenericCloud-LVM,Cloud-Azure-LVM,Cloud-OCP-Base,Cloud-EC2-LVM">
+    <package name="lvm2"/>
+  </packages>
+  <!-- There isn't a way to exclude packages from a certain repo -->
+  <packages type="image" patternType="plusRecommended" profiles="Cloud-OCP-Base">
+    <package name="iscsi-initiator-utils"/>
+  </packages>
+</image>

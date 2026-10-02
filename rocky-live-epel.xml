@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.4" name="Rocky">
+  <description type="system">
+    <author>Release Engineering (SIG/Core)</author>
+    <contact>releng@rockylinux.org</contact>
+    <specification>Rocky Linux</specification>
+  </description>
+  <preferences>
+    <version>9</version>
+    <packagemanager>dnf</packagemanager>
+    <locale>en_US</locale>
+    <keytable>us</keytable>
+    <timezone>UTC</timezone>
+    <release-version>9</release-version>
+  </preferences>
+  <include from="this://./repositories/core.xml"/>
+  <include from="this://./repositories/epel.xml"/>
+  <include from="this://./components/boot.xml"/>
+  <include from="this://./components/users.xml"/>
+  <include from="this://./components/live/common.xml"/>
+  <include from="this://./components/live/cinnamon.xml"/>
+  <include from="this://./components/live/kde.xml"/>
+  <include from="this://./components/live/mate.xml"/>
+  <include from="this://./components/live/xfce.xml"/>
+  <include from="this://./live/live-epel.xml"/>
+  <include from="this://./components/bootstrap.xml"/>
+</image>

@@ -1,0 +1,239 @@
+<image>
+  <profiles>
+    <profile name="Core-Vagrant" description="Vagrant Core Packages">
+      <requires profile="Core-Boot"/>
+    </profile>
+    <!--
+    <profile name="Vagrant-Hyperv" description="Vagrant Hyperv Image">
+      <requires profile="Core-Vagrant"/>
+    </profile>
+    -->
+    <profile name="Vagrant-Libvirt" description="Vagrant Libvirt Image">
+      <requires profile="Core-Vagrant"/>
+    </profile>
+    <profile name="Vagrant-Vbox" description="Vagrant Vbox Image">
+      <requires profile="Core-Vagrant"/>
+    </profile>
+    <profile name="Vagrant-VMware" description="Vagrant VMware Image">
+      <requires profile="Core-Vagrant"/>
+    </profile>
+  </profiles>
+
+  <users profiles="Core-Vagrant">
+    <user name="vagrant" groups="vagrant" password="vagrant" home="/home/vagrant" pwdformat="plain" />
+    <user name="root" groups="root" password="$5$xyz$DPJRaBL9FrgJhscbvsfpJpNA9c.o4sMBorTsYKIb69." home="/root"/>
+  </users>
+
+  <!--
+  <preferences profiles="Vagrant-Hyperv" arch="x86_64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <vagrantconfig provider="hyperv" virtualsize="10"/>
+    </type>
+  </preferences>
+  -->
+  
+  <preferences profiles="Vagrant-Libvirt" arch="x86_64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <vagrantconfig provider="libvirt" virtualsize="10">
+        <info name="Author"      >The Rocky Cloud SIG</info>
+        <info name="Website"     >https://rockylinux.org</info>
+        <info name="Artifacts"   >https://portal.cloud.hashicorp.com/vagrant/discover/rockylinux</info>
+        <info name="Repository"  >https://git.resf.org/sig_core/rocky-kiwi-descriptions</info>
+        <info name="Description" >Official First-party Vagrant Boxes built with KIWI</info>
+      </vagrantconfig>
+    </type>
+  </preferences>
+  <preferences profiles="Vagrant-Libvirt" arch="aarch64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyAMA0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <vagrantconfig provider="libvirt" virtualsize="10">
+        <info name="Author"      >The Rocky Cloud SIG</info>
+        <info name="Website"     >https://rockylinux.org</info>
+        <info name="Artifacts"   >https://portal.cloud.hashicorp.com/vagrant/discover/rockylinux</info>
+        <info name="Repository"  >https://git.resf.org/sig_core/rocky-kiwi-descriptions</info>
+        <info name="Description" >Official First-party Vagrant Boxes built with KIWI</info>
+      </vagrantconfig>
+    </type>
+  </preferences>
+
+  <preferences profiles="Vagrant-Vbox" arch="x86_64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <!-- <vagrantconfig provider="virtualbox" virtualbox_guest_additions_present="true" virtualsize="5"/> -->
+      <vagrantconfig provider="virtualbox" virtualbox_guest_additions_present="false" virtualsize="10" embedded_vagrantfile="VboxVagrantFile">
+        <info name="Author"      >The Rocky Cloud SIG</info>
+        <info name="Website"     >https://rockylinux.org</info>
+        <info name="Artifacts"   >https://portal.cloud.hashicorp.com/vagrant/discover/rockylinux</info>
+        <info name="Repository"  >https://git.resf.org/sig_core/rocky-kiwi-descriptions</info>
+        <info name="Description" >Official First-party Vagrant Boxes built with KIWI</info>
+      </vagrantconfig>
+    </type>
+  </preferences>
+  <preferences profiles="Vagrant-Vbox" arch="aarch64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyAMA0,115200n8 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <!-- <vagrantconfig provider="virtualbox" virtualbox_guest_additions_present="true" virtualsize="5"/> -->
+      <vagrantconfig provider="virtualbox" virtualbox_guest_additions_present="false" virtualsize="10" embedded_vagrantfile="VboxVagrantFile">
+        <info name="Author"      >The Rocky Cloud SIG</info>
+        <info name="Website"     >https://rockylinux.org</info>
+        <info name="Artifacts"   >https://portal.cloud.hashicorp.com/vagrant/discover/rockylinux</info>
+        <info name="Repository"  >https://git.resf.org/sig_core/rocky-kiwi-descriptions</info>
+        <info name="Description" >Official First-party Vagrant Boxes built with KIWI</info>
+      </vagrantconfig>
+    </type>
+  </preferences>
+
+  <!-- VMware is made as a libvirt image and converted later. This this profile
+       at your own risk. -->
+  <preferences profiles="Vagrant-VMware" arch="x86_64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <machine 
+        ovftype="vmware"
+        HWversion="20"
+        guestOS="rockylinux-64"
+        memory="1024"
+        ncpus="2"
+        >
+        <vmdisk id="0" controller="pvscsi"/>
+        <!-- <vmconfig-entry></vmconfig-entry> -->
+        <vmconfig-entry>firmware = "efi"</vmconfig-entry>
+      </machine>
+      <vagrantconfig provider="vmware" virtualsize="10">
+        <info name="Author"      >The Rocky Cloud SIG</info>
+        <info name="Website"     >https://rockylinux.org</info>
+        <info name="Artifacts"   >https://portal.cloud.hashicorp.com/vagrant/discover/rockylinux</info>
+        <info name="Repository"  >https://git.resf.org/sig_core/rocky-kiwi-descriptions</info>
+        <info name="Description" >Official First-party Vagrant Boxes built with KIWI</info>
+      </vagrantconfig>
+    </type>
+  </preferences>
+
+  <preferences profiles="Vagrant-VMware" arch="aarch64">
+    <type image="oem" format="vagrant"
+      filesystem="xfs"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="xfs" efipartsize="100" firmware="uefi"
+      kernelcmdline="no_timer_check console=tty0 console=ttyAMA0,115200n8 biosdevname=0 elevator=noop"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky" editbootconfig="bootloader-no-probe.sh">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+      </oemconfig>
+      <bootloader name="grub2" timeout="1"/>
+      <size unit="G">10</size>
+      <machine 
+        ovftype="vmware"
+        HWversion="21"
+        guestOS="arm-rockylinux-64"
+        memory="1024"
+        ncpus="2"
+        >
+        <!-- <vmconfig-entry></vmconfig-entry> -->
+        <vmdisk id="0" controller="sata"/>
+        <vmconfig-entry>firmware = "efi"</vmconfig-entry>
+      </machine>
+      <vagrantconfig provider="vmware" virtualsize="10">
+        <info name="Author"      >The Rocky Cloud SIG</info>
+        <info name="Website"     >https://rockylinux.org</info>
+        <info name="Artifacts"   >https://portal.cloud.hashicorp.com/vagrant/discover/rockylinux</info>
+        <info name="Repository"  >https://git.resf.org/sig_core/rocky-kiwi-descriptions</info>
+        <info name="Description" >Official First-party Vagrant Boxes built with KIWI</info>
+      </vagrantconfig>
+    </type>
+  </preferences>
+
+  <packages type="image" patternType="plusRecommended" profiles="Core-Vagrant">
+    <namedCollection name="core"/>
+    <ignore name="dracut-config-rescue"/>
+    <ignore name="*-firmware"/>
+    <ignore name="microcode_ctl"/>
+    <ignore name="plymouth"/>
+    <package name="bash-completion"/>
+    <package name="bzip2"/>
+    <package name="chrony"/>
+    <package name="cifs-utils"/>
+    <package name="gdisk"/>
+    <package name="glibc-langpack-en"/>
+    <package name="man-pages"/>
+    <package name="nfs-utils"/>
+    <package name="open-vm-tools"/>
+    <package name="rsync"/>
+    <package name="vim-minimal"/>
+    <package name="yum-utils"/>
+  </packages>
+  <!--
+  <packages type="image" patternType="plusRecommended" profiles="Vagrant-Hyperv">
+    <package name="hyperv-daemons"/>
+  </packages>
+  -->
+  <packages type="image" patternType="plusRecommended" profiles="Vagrant-Libvirt">
+    <package name="hyperv-daemons"/>
+    <package name="qemu-guest-agent"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="Vagrant-VMware">
+    <package name="open-vm-tools"/>
+  </packages>
+  <!-- <packages type="image" patternType="plusRecommended" profiles="Vagrant-Vbox">
+    <package name="virtualbox-guest-additions"/>
+  </packages> -->
+  <!-- Do we need this? I don't see cloud-init in our kickstarts -->
+  <packages type="uninstall" profiles="Core-Vagrant">
+    <package name="cloud-init"/>
+  </packages>
+</image>

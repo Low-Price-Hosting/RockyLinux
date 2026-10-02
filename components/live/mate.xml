@@ -1,0 +1,144 @@
+<image>
+  <profiles>
+    <profile name="MATE-Desktop" description="MATE Desktop">
+      <requires profile="Live-Base"/>
+    </profile>
+  </profiles>
+  <preferences profiles="MATE-Desktop">
+    <type image="iso" publisher="Rocky Enterprise Software Foundation" volid="Rocky-9-MATE" application_id="Rocky-9-MATE" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="true">
+      <bootloader name="grub2" grub_template="grub.tmpl" console="console" timeout="10"/>
+    </type>
+  </preferences>
+  <packages type="image" patternType="plusRecommended" profiles="MATE-Desktop">
+    <package name="NetworkManager-adsl"/>
+    <package name="NetworkManager-bluetooth"/>
+    <package name="NetworkManager-l2tp-gnome"/>
+    <package name="NetworkManager-libreswan-gnome"/>
+    <package name="NetworkManager-openconnect-gnome"/>
+    <package name="NetworkManager-openvpn-gnome"/>
+    <package name="NetworkManager-ovs"/>
+    <package name="NetworkManager-ppp"/>
+    <package name="NetworkManager-pptp-gnome"/>
+    <package name="NetworkManager-team"/>
+    <package name="NetworkManager-wifi"/>
+    <package name="NetworkManager-wwan"/>
+    <package name="atril"/>
+    <package name="atril-caja"/>
+    <package name="atril-thumbnailer"/>
+    <package name="caja"/>
+    <package name="caja-actions"/>
+    <package name="dconf-editor"/>
+    <package name="engrampa"/>
+    <package name="eom"/>
+    <package name="epel-release"/>
+    <package name="f36-backgrounds-extras-mate"/>
+    <package name="f36-backgrounds-mate"/>
+    <package name="f37-backgrounds-extras-mate"/>
+    <package name="f37-backgrounds-mate"/>
+    <package name="filezilla"/>
+    <package name="firefox"/>
+    <package name="firewall-applet"/>
+    <package name="firewall-config"/>
+    <package name="gjs"/>
+    <package name="gnome-disk-utility"/>
+    <package name="gnome-epub-thumbnailer"/>
+    <package name="gnome-themes-extra"/>
+    <package name="gparted"/>
+    <package name="gstreamer1-plugins-ugly-free"/>
+    <package name="gtk2-engines"/>
+    <package name="gucharmap"/>
+    <package name="gvfs-fuse"/>
+    <package name="gvfs-gphoto2"/>
+    <package name="gvfs-mtp"/>
+    <package name="gvfs-smb"/>
+    <package name="hexchat" arch="x86_64"/>
+    <package name="initial-setup-gui"/>
+    <package name="libmatekbd"/>
+    <package name="libmatemixer"/>
+    <package name="libmateweather"/>
+    <package name="libreoffice-calc"/>
+    <package name="libreoffice-emailmerge" arch="x86_64"/>
+    <package name="libreoffice-graphicfilter"/>
+    <package name="libreoffice-impress"/>
+    <package name="libreoffice-writer"/>
+    <package name="libsecret"/>
+    <package name="lightdm"/>
+    <package name="lm_sensors"/>
+    <package name="marco"/>
+    <package name="mate-applets"/>
+    <package name="mate-backgrounds"/>
+    <package name="mate-calc"/>
+    <package name="mate-control-center"/>
+    <package name="mate-desktop"/>
+    <package name="mate-dictionary"/>
+    <package name="mate-disk-usage-analyzer"/>
+    <package name="mate-icon-theme"/>
+    <package name="mate-media"/>
+    <package name="mate-menu"/>
+    <package name="mate-menus"/>
+    <package name="mate-menus-preferences-category-menu"/>
+    <package name="mate-notification-daemon"/>
+    <package name="mate-panel"/>
+    <package name="mate-polkit"/>
+    <package name="mate-power-manager"/>
+    <package name="mate-screensaver"/>
+    <package name="mate-screenshot"/>
+    <package name="mate-search-tool"/>
+    <package name="mate-sensors-applet"/>
+    <package name="mate-session-manager"/>
+    <package name="mate-settings-daemon"/>
+    <package name="mate-system-log"/>
+    <package name="mate-system-monitor"/>
+    <package name="mate-terminal"/>
+    <package name="mate-themes"/>
+    <package name="mate-user-admin"/>
+    <package name="mate-user-guide"/>
+    <package name="mate-utils"/>
+    <package name="mozo"/>
+    <package name="network-manager-applet"/>
+    <package name="nm-connection-editor"/>
+    <package name="orca"/>
+    <package name="p7zip"/>
+    <package name="p7zip-plugins"/>
+    <package name="parole"/>
+    <package name="pavucontrol"/>
+    <package name="pipewire-alsa"/>
+    <package name="pipewire-pulseaudio"/>
+    <package name="pluma"/>
+    <package name="pluma-plugins"/>
+    <package name="rocky-backgrounds"/>
+    <package name="rocky-backgrounds-compat"/>
+    <package name="rocky-release"/>
+    <package name="seahorse"/>
+    <package name="seahorse-caja"/>
+    <package name="setroubleshoot"/>
+    <package name="slick-greeter-mate"/>
+    <package name="thunderbird"/>
+    <package name="tigervnc"/>
+    <package name="usermode-gtk"/>
+    <package name="vim-enhanced"/>
+    <package name="wireplumber"/>
+    <package name="xdg-user-dirs-gtk"/>
+    <package name="xmodmap"/>
+    <package name="xrdb"/>
+    <package name="yelp"/>
+    <!-- ignores for space and other things -->
+    <ignore name="audacious"/>
+    <ignore name="brasero"/>
+    <ignore name="evolution-help"/>
+    <ignore name="fedora-icon-theme"/>
+    <ignore name="gnome-icon-theme"/>
+    <ignore name="gnome-icon-theme-symbolic"/>
+    <ignore name="gnome-logs"/>
+    <ignore name="gnome-software"/>
+    <ignore name="gnome-user-docs"/>
+    <ignore name="hplip"/>
+    <ignore name="isdn4k-utils"/>
+    <ignore name="mpage"/>
+    <ignore name="sane-backends"/>
+    <ignore name="systemd-oom-defaults"/>
+    <ignore name="telnet"/>
+    <ignore name="xsane"/>
+    <ignore name="xsane-gimp"/>
+  </packages>
+</image>

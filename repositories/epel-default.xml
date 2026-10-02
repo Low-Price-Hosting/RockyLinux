@@ -1,0 +1,7 @@
+<image>
+  <repository type="rpm-md" alias="epel" priority="2">
+    <source path="https://dl.fedoraproject.org/pub/epel/$releasever/Everything/x86_64/">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever"/>
+    </source>
+  </repository>
+</image>

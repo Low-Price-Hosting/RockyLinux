@@ -1,0 +1,91 @@
+<image>
+  <profiles>
+    <profile name="Core-Pi" description="Pi Base Packages">
+      <requires profile="Core-RpiBoot"/>
+    </profile>
+    <profile name="SBC-RaspberryPi" description="Raspberry Pi Image">
+      <requires profile="Core-Pi"/>
+    </profile>
+    <profile name="SBC-GenericArm" description="Generic ARM Image">
+      <requires profile="Core-Pi"/>
+    </profile>
+  </profiles>
+  <!-- RPI -->
+  <preferences profiles="SBC-RaspberryPi" arch="aarch64">
+    <type image="oem"
+      filesystem="ext4"
+      firmware="efi"
+      bootpartition="false"
+      efipartsize="500"
+      kernelcmdline="console=ttyAMA0,115200 console=tty1 root=LABEL=RPIROOT rootfstype=ext4 elevator=deadline rootwait"
+      devicepersistency="by-label"
+      editbootinstall="sbc/editbootinstall_rpi.sh"
+      rootfs_label="RPIROOT">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+        <oem-skip-verify>true</oem-skip-verify>
+        <oem-swap>true</oem-swap>
+        <oem-swapsize>512</oem-swapsize>
+      </oemconfig>
+      <bootloader name="custom"/>
+    </type>
+  </preferences>
+  <preferences profiles="SBC-GenericArm" arch="aarch64">
+    <type image="oem"
+      filesystem="ext4"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="500" firmware="efi"
+      kernelcmdline="root=LABEL=rootfs rootfstype=ext4 elevator=deadline rootwait console=ttyS0"
+      devicepersistency="by-label"
+      editbootinstall="sbc/editbootinstall_genericarm.sh"
+      rootfs_label="rootfs">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+        <oem-skip-verify>true</oem-skip-verify>
+        <oem-swap>true</oem-swap>
+        <oem-swapsize>500</oem-swapsize>
+      </oemconfig>
+      <bootloader name="grub2" console="serial"/>
+      <size unit="G">3</size>
+    </type>
+  </preferences>
+
+  <packages type="image" patternType="plusRecommended" profiles="Core-Pi">
+    <namedCollection name="core"/>
+    <package name="rocky-release"/>
+    <package name="rocky-release-altarch"/>
+    <package name="bash-completion"/>
+    <package name="chrony"/>
+    <package name="cloud-utils-growpart"/>
+    <package name="langpacks-en"/>
+    <package name="glibc-all-langpacks"/>
+    <package name="net-tools"/>
+    <package name="nano"/>
+    <package name="NetworkManager-wifi"/>
+    <package name="rng-tools"/>
+    <package name="vim"/>
+    <package name="wget"/>
+    <package name="microdnf"/>
+    <package name="tar"/>
+    <package name="rocky-sbc-utils"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="SBC-RaspberryPi">
+	  <package name="rocky-release-rpi"/>
+	  <package name="rpi-firmware-nonfree"/>
+    <package name="rpi-firmware-bluez"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="SBC-GenericArm">
+    <package name="bcm2711-firmware"/>
+    <package name="bcm2835-firmware"/>
+    <package name="bcm283x-firmware"/>
+    <package name="bcm283x-overlays"/>
+    <package name="dracut-config-generic"/>
+    <package name="efibootmgr"/>
+    <package name="kernel"/>
+    <package name="kernel-core"/>
+    <package name="systemd-udev"/>
+    <package name="uboot-images-armv8"/>
+    <package name="uboot-tools"/>
+    <ignore name="dracut-config-rescue"/>
+    <ignore name="java-11-*"/>
+  </packages>
+</image>

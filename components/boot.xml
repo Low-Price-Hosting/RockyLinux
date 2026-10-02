@@ -1,0 +1,34 @@
+<image>
+  <profiles>
+    <profile name="Core-Boot" description="Boot Core Packages"/>
+    <profile name="Core-RpiBoot" description="RpiBoot Core Packages"/>
+  </profiles>
+  <packages type="bootstrap" patternType="plusRecommended" profiles="Core-Boot">
+    <package name="grubby"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="Core-Boot">
+    <package name="grub2-efi-aa64" arch="aarch64"/>
+    <package name="grub2-efi-aa64-modules" arch="aarch64"/>
+    <package name="grub2-efi-x64" arch="x86_64"/>
+    <package name="grub2-efi-x64-modules" arch="x86_64"/>
+    <package name="grub2-pc" arch="x86_64"/>
+    <package name="grub2-pc-modules" arch="x86_64"/>
+    <package name="grub2-ppc64le" arch="ppc64le"/>
+    <package name="s390utils-base" arch="s390x"/>
+    <package name="shim-signed-aa64" arch="aarch64"/>
+    <package name="shim-signed-x64" arch="x86_64"/>
+    <package name="kernel-core"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="Core-RpiBoot">
+    <package name="kernel-rpi-4k-modules-core"/>
+    <package name="kernel-rpi-4k-core"/>
+    <package name="kernel-rpi-16k-modules-core"/>
+    <package name="kernel-rpi-16k-core"/>
+    <package name="kernel-rpi-firmware"/>
+    <ignore name="kernel-tools"/>
+  </packages>
+  <packages type="iso" patternType="plusRecommended" profiles="Core-Boot">
+    <package name="grub2-efi-aa64-cdboot" arch="aarch64"/>
+    <package name="grub2-efi-x64-cdboot" arch="x86_64"/>
+  </packages>
+</image>

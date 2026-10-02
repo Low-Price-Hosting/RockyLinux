@@ -1,0 +1,10 @@
+<image>
+  <packages type="bootstrap">
+    <package name="basesystem"/>
+    <package name="filesystem"/>
+    <!-- Import into /image before post_bootstrap.sh; final targets are in
+         the shared cache, which Kiwi unmounts before packaging. -->
+    <file name="koji-build-ca.pem" target="/var/cache/kiwi/koji-build-ca.pem"/>
+    <file name="build-repo-ca.sh" target="/var/cache/kiwi/build-repo-ca.sh"/>
+  </packages>
+</image>

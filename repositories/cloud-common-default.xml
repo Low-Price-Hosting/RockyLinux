@@ -1,0 +1,6 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="sig-cloud-common" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/cloud/$basearch/cloud-common"/>
+  </repository>
+</image>

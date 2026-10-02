@@ -1,0 +1,12 @@
+<image>
+  <users profiles="Cloud-Azure-Base,Cloud-Azure-LVM,Cloud-EC2-Base,Cloud-EC2-LVM,Cloud-GenericCloud-Base,Cloud-GenericCloud-LVM,Cloud-OCP-Base,Live-Base">
+    <user name="root" groups="root" password="linux" home="/root" pwdformat="plain" />
+  </users>
+  <!--  <users profiles="Cloud-Azure-Base,Cloud-Azure-LVM,Cloud-EC2-Base,Cloud-EC2-LVM,Cloud-GenericCloud-Base,Cloud-GenericCloud-LVM,Cloud-OCP-Base">
+    <user name="rocky" groups="rocky,wheel" password="thereisnopassword" home="/home/rocky" pwdformat="encrypted" />
+  </users> -->
+  <!-- Only for SBC -->
+  <users profiles="Core-Pi">
+    <user password="$6$ggstAnji$tPNhSHa/OG4UrJ0P77ZHlCunu.pueMXtXgAER51mTJ7bpXl/onDplJXd0usMSlFP4gOn/A7BM7cGoVw/WcCKS." home="/home/rocky" name="rocky" groups="rocky,wheel"/>
+  </users>
+</image>

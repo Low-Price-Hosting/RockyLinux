@@ -1,0 +1,332 @@
+<image>
+  <profiles>
+    <profile name="Core-Container" description="Container Core Packages">
+    </profile>
+    <profile name="Container-Base" description="Container Base Image">
+      <requires profile="Core-Container"/>
+    </profile>
+    <profile name="Container-Minimal" description="Minimal Container Image">
+      <requires profile="Core-Container"/>
+    </profile>
+    <profile name="Container-UBI" description="UBI Container Image">
+      <requires profile="Core-Container"/>
+    </profile>
+    <!-- The base container is the starting point, but we have additional
+         packages to deal with. So this is a standalone profile. -->
+    <profile name="Container-Toolbox" description="Toolbox Container Image">
+    </profile>
+    <!-- ... -->
+  </profiles>
+
+  <preferences profiles="Container-Base">
+    <type image="oci">
+      <containerconfig
+        name="rockylinux"
+        tag="9"
+        maintainer="Release Engineering (SIG/Core)">
+        <subcommand execute="/bin/bash"/>
+        <labels>
+          <label name="org.opencontainers.image.authors" value="Lukas Magauer, Neil Hanlon, Louis Abel"/>
+          <label name="org.opencontainers.image.licenses" value="BSD-3-Clause"/>
+          <label name="org.opencontainers.image.source" value="https://git.resf.org/sig_core/rocky-kiwi-descriptions/src/branch/r9"/>
+          <label name="org.opencontainers.image.title" value="rockylinux"/>
+          <label name="org.opencontainers.image.vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="org.opencontainers.image.version" value="9"/>
+          <label name="name" value="rockylinux"/>
+          <label name="license" value="BSD-3-Clause"/>
+          <label name="summary" value="Rocky Linux Base image"/>
+          <label name="vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="version" value="9"/>
+        </labels>
+        <environment>
+          <env name="container" value="oci"/>
+        </environment>
+      </containerconfig>
+    </type>
+    <timezone>Etc/UTC</timezone>
+    <locale>en_US</locale>
+    <rpm-locale-filtering>true</rpm-locale-filtering>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+
+  <preferences profiles="Container-Minimal">
+    <type image="oci">
+      <containerconfig
+        name="rockylinux"
+        tag="9-minimal"
+        maintainer="Release Engineering (SIG/Core)">
+        <subcommand execute="/bin/bash"/>
+        <labels>
+          <label name="org.opencontainers.image.authors" value="Lukas Magauer, Neil Hanlon, Louis Abel"/>
+          <label name="org.opencontainers.image.licenses" value="BSD-3-Clause"/>
+          <label name="org.opencontainers.image.source" value="https://git.resf.org/sig_core/rocky-kiwi-descriptions/src/branch/r9"/>
+          <label name="org.opencontainers.image.title" value="rockylinux"/>
+          <label name="org.opencontainers.image.vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="org.opencontainers.image.version" value="9-minimal"/>
+          <label name="name" value="rockylinux"/>
+          <label name="license" value="BSD-3-Clause"/>
+          <label name="summary" value="Rocky Linux Minimal image"/>
+          <label name="vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="version" value="9-minimal"/>
+        </labels>
+        <environment>
+          <env name="container" value="oci"/>
+        </environment>
+      </containerconfig>
+    </type>
+    <timezone>Etc/UTC</timezone>
+    <locale>en_US</locale>
+    <rpm-locale-filtering>true</rpm-locale-filtering>
+    <rpm-excludedocs>true</rpm-excludedocs>
+    <packagemanager>microdnf</packagemanager>
+  </preferences>
+
+  <preferences profiles="Container-UBI">
+    <type image="oci">
+      <containerconfig
+        name="rockylinux"
+        tag="9-ubi"
+        maintainer="Release Engineering (SIG/Core)">
+        <subcommand execute="/bin/bash"/>
+        <labels>
+          <label name="org.opencontainers.image.authors" value="Lukas Magauer, Neil Hanlon, Louis Abel"/>
+          <label name="org.opencontainers.image.licenses" value="BSD-3-Clause"/>
+          <label name="org.opencontainers.image.source" value="https://git.resf.org/sig_core/rocky-kiwi-descriptions/src/branch/r9"/>
+          <label name="org.opencontainers.image.title" value="rockylinux"/>
+          <label name="org.opencontainers.image.vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="org.opencontainers.image.version" value="9-ubi"/>
+          <label name="name" value="rockylinux"/>
+          <label name="license" value="BSD-3-Clause"/>
+          <label name="summary" value="Rocky Linux UBI image"/>
+          <label name="vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="version" value="9-ubi"/>
+        </labels>
+        <environment>
+          <env name="container" value="oci"/>
+        </environment>
+      </containerconfig>
+    </type>
+    <timezone>Etc/UTC</timezone>
+    <locale>en_US</locale>
+    <rpm-locale-filtering>true</rpm-locale-filtering>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+
+  <preferences profiles="Container-Toolbox">
+    <type image="oci">
+      <containerconfig
+        name="rocky-toolbox"
+        tag="9"
+        maintainer="Release Engineering (SIG/Core)">
+        <subcommand execute="/bin/bash"/>
+        <labels>
+          <label name="com.github.containers.toolbox" value="true"/>
+          <label name="org.opencontainers.image.authors" value="Lukas Magauer, Neil Hanlon, Louis Abel"/>
+          <label name="org.opencontainers.image.description" value="Base image for creating Rocky Linux toolbox containers"/>
+          <label name="org.opencontainers.image.licenses" value="BSD-3-Clause"/>
+          <label name="org.opencontainers.image.source" value="https://git.resf.org/sig_core/rocky-kiwi-descriptions/src/branch/r9"/>
+          <label name="org.opencontainers.image.title" value="rocky-toolbox"/>
+          <label name="org.opencontainers.image.vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="org.opencontainers.image.version" value="9"/>
+          <label name="name" value="rocky-toolbox"/>
+          <label name="license" value="BSD-3-Clause"/>
+          <label name="summary" value="Rocky Linux toolbox image"/>
+          <label name="usage" value="This image is meant to be used with the toolbox command"/>
+          <label name="vendor" value="Rocky Enterprise Software Foundation"/>
+          <label name="version" value="9"/>
+        </labels>
+        <environment>
+          <env name="container" value="oci"/>
+        </environment>
+      </containerconfig>
+    </type>
+    <timezone>Etc/UTC</timezone>
+    <locale>en_US</locale>
+    <rpm-locale-filtering>true</rpm-locale-filtering>
+    <rpm-excludedocs>false</rpm-excludedocs>
+  </preferences>
+
+  <!-- Core package installation. This affects everything except for the
+       toolbox container. -->
+  <packages type="bootstrap" profiles="Core-Container">
+    <package name="bash"/>
+    <package name="coreutils-single"/>
+    <package name="glibc-minimal-langpack"/>
+    <package name="rocky-release"/>
+    <package name="util-linux"/>
+    <ignore name="*-firmware"/>
+    <ignore name="dosfstools"/>
+    <ignore name="e2fsprogs"/>
+    <ignore name="firewalld"/>
+    <ignore name="fuse-libs"/>
+    <ignore name="gettext*"/>
+    <ignore name="gnupg2-smime"/>
+    <ignore name="grub*"/>
+    <ignore name="iptables"/>
+    <ignore name="kernel"/>
+    <ignore name="libss"/>
+    <ignore name="os-prober"/>
+    <ignore name="pinentry"/>
+    <ignore name="qemu-guest-agent"/>
+    <ignore name="shared-mime-info"/>
+    <ignore name="trousers"/>
+    <ignore name="xfsprogs"/>
+    <ignore name="xkeyboard-config"/>
+  </packages>
+  <!-- Base -->
+  <packages type="bootstrap" profiles="Container-Base">
+    <package name="binutils"/>
+    <package name="crypto-policies-scripts"/>
+    <package name="curl-minimal"/>
+    <package name="dnf"/>
+    <package name="findutils"/>
+    <package name="gzip"/>
+    <package name="hostname"/>
+    <package name="iputils"/>
+    <package name="less"/>
+    <package name="libcurl-minimal"/>
+    <package name="libusbx"/>
+    <package name="rootfiles"/>
+    <package name="tar"/>
+    <package name="usermode"/>
+    <package name="vim-minimal"/>
+    <package name="yum"/>
+    <ignore name="brotli"/>
+    <ignore name="kexec-tools"/>
+  </packages>
+  <!-- End Base -->
+  <!-- Minimal -->
+  <packages type="bootstrap" profiles="Container-Minimal">
+    <package name="langpacks-core-en"/>
+    <package name="langpacks-core-font-en"/>
+    <package name="langpacks-en"/>
+    <package name="microdnf"/>
+    <ignore name="brotli"/>
+    <ignore name="hostname"/>
+    <ignore name="iputils"/>
+    <ignore name="kexec-tools"/>
+    <ignore name="less"/>
+    <ignore name="rootfiles"/>
+    <ignore name="tar"/>
+    <ignore name="vim-minimal"/>
+    <ignore name="yum"/>
+  </packages>
+  <!-- End Minimal -->
+  <!-- UBI -->
+  <packages type="bootstrap" patternType="plusRecommended" profiles="Container-UBI">
+    <package name="crypto-policies-scripts"/>
+    <package name="curl-minimal"/>
+    <package name="dnf"/>
+    <package name="findutils"/>
+    <package name="gawk-all-langpacks"/>
+    <package name="gdb-gdbserver"/>
+    <package name="glibc-gconv-extra"/>
+    <package name="glibc-langpack-en"/>
+    <package name="gzip"/>
+    <package name="langpacks-en"/>
+    <package name="libcurl-minimal"/>
+    <package name="libxcrypt-compat"/>
+    <package name="python-unversioned-command"/>
+    <package name="rootfiles"/>
+    <package name="rpm-plugin-systemd-inhibit"/>
+    <package name="systemd"/>
+    <package name="tar"/>
+    <package name="vim-minimal"/>
+    <package name="which"/>
+    <package name="yum"/>
+    <ignore name="kexec-tools"/>
+  </packages>
+  <!-- End UBI -->
+  <!-- Toolbox -->
+  <packages type="bootstrap" patternType="plusRecommended" profiles="Container-Toolbox">
+    <package name="acl"/>
+    <package name="bash"/>
+    <package name="bash-completion"/>
+    <package name="bc"/>
+    <package name="bzip2"/>
+    <package name="coreutils-single"/>
+    <package name="curl"/>
+    <package name="diffutils"/>
+    <package name="dnf"/>
+    <package name="dnf-plugins-core"/>
+    <package name="findutils"/>
+    <package name="flatpak-spawn"/>
+    <package name="gawk"/>
+    <package name="git"/>
+    <package name="glibc-minimal-langpack"/>
+    <package name="gnupg"/>
+    <package name="gnupg2-smime"/>
+    <package name="grep"/>
+    <package name="gvfs-client"/>
+    <package name="gzip"/>
+    <package name="hostname"/>
+    <package name="iproute"/>
+    <package name="iputils"/>
+    <package name="keyutils"/>
+    <package name="krb5-libs"/>
+    <package name="langpacks-en"/>
+    <package name="less"/>
+    <package name="libcap"/>
+    <package name="lsof"/>
+    <package name="man-db"/>
+    <package name="man-pages"/>
+    <package name="mlocate"/>
+    <package name="mtr"/>
+    <package name="openssh-clients"/>
+    <package name="openssl"/>
+    <package name="p11-kit"/>
+    <package name="pam"/>
+    <package name="passwd"/>
+    <package name="pigz"/>
+    <package name="procps-ng"/>
+    <package name="python3"/>
+    <package name="rocky-release"/>
+    <package name="rpaste"/>
+    <package name="rpm"/>
+    <package name="rsync"/>
+    <package name="sed"/>
+    <package name="shadow-utils"/>
+    <package name="sudo"/>
+    <package name="systemd"/>
+    <package name="tar"/>
+    <package name="tcpdump"/>
+    <package name="time"/>
+    <package name="traceroute"/>
+    <package name="tree"/>
+    <package name="unzip"/>
+    <package name="util-linux"/>
+    <package name="vte-profile"/>
+    <package name="wget"/>
+    <package name="which"/>
+    <package name="words"/>
+    <package name="xorg-x11-xauth"/>
+    <package name="xz"/>
+    <package name="zip"/>
+    <ignore name="dosfstools"/>
+    <ignore name="e2fsprogs"/>
+    <ignore name="firewalld"/>
+    <ignore name="fuse-libs"/>
+    <ignore name="gettext*"/>
+    <ignore name="geolite2-city"/>
+    <ignore name="geolite2-country"/>
+    <ignore name="grubby"/>
+    <ignore name="iptables"/>
+    <ignore name="kernel"/>
+    <ignore name="*-firmware"/>
+    <ignore name="libss"/>
+    <ignore name="osprober"/>
+    <ignore name="pinentry"/>
+    <ignore name="shared-mime-info"/>
+    <ignore name="sssd-client"/>
+    <ignore name="trousers"/>
+    <ignore name="xfsprogs"/>
+    <ignore name="xkeyboard-config"/>
+  </packages>
+  <packages type="uninstall" profiles="Container-Toolbox">
+    <package name="dracut"/>
+    <package name="pinentry"/>
+    <package name="systemd-resolved"/>
+    <package name="xkeyboard-config"/>
+  </packages>
+  <!-- End Toolbox -->
+</image>
