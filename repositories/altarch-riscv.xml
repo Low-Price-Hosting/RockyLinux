@@ -1,0 +1,9 @@
+<image>
+  <!-- rocky-sbc-utils is noarch and is currently published in this tree. -->
+  <repository type="rpm-md" alias="sig-altarch-sbc-utils" priority="5"
+    profiles="SBC-VisionFive2">
+    <source path="https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/altarch-common">
+      <signing key="https://git.rockylinux.org/staging/src/rocky-release-altarch/-/raw/r10/SOURCES/RPM-GPG-KEY-Rocky-SIG-AltArch"/>
+    </source>
+  </repository>
+</image>

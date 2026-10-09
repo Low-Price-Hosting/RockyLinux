@@ -1,0 +1,6 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="oraclelinux-addons" priority="50">
+    <source path="http://yum.oracle.com/repo/OracleLinux/OL$releasever/addons/$basearch/"/>
+  </repository>
+</image>

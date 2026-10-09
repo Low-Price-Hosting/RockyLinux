@@ -1,0 +1,9 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="sig-core-common" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/core/$basearch/core-common"/>
+  </repository>
+  <repository type="rpm-md" alias="sig-core-infra" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/core/$basearch/core-infra"/>
+  </repository>
+</image>

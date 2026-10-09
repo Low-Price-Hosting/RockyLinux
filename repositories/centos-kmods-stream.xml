@@ -1,0 +1,17 @@
+<image>
+  <repository type="rpm-md" alias="centos-kmods-main" priority="2">
+    <source path="https://mirror.stream.centos.org/SIGs/$releasever-stream/kmods/$basearch/packages-main">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Kmods"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="centos-kmods-userspace" priority="2">
+    <source path="https://mirror.stream.centos.org/SIGs/$releasever-stream/kmods/$basearch/packages-userspace">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Kmods"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="centos-kmods-kernel-latest" priority="2">
+    <source path="https://mirror.stream.centos.org/SIGs/$releasever/kmods/$basearch/kernel-latest/">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Kmods"/>
+    </source>
+  </repository>
+</image>

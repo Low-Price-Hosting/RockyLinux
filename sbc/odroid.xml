@@ -1,0 +1,55 @@
+<image>
+  <profiles>
+    <profile name="SBC-Odroid-M1" description="Odroid M1 Image">
+      <requires profile="Core-Boot"/>
+    </profile>
+  </profiles>
+  <preferences profiles="SBC-Odroid-M1" arch="aarch64">
+    <type image="oem"
+      filesystem="ext4"
+      bootpartition="true" bootpartsize="1000" bootfilesystem="ext4" efipartsize="500" firmware="efi"
+      kernelcmdline="root=LABEL=rootfs rootfstype=ext4 elevator=deadline rootwait console=ttyS0"
+      devicepersistency="by-uuid"
+      rootfs_label="rocky">
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+        <oem-skip-verify>true</oem-skip-verify>
+      </oemconfig>
+      <bootloader name="grub2" console="serial" bls="true"/>
+      <size unit="G">4</size>
+      <systemdisk name="rocky" preferlvm="true">
+        <volume name="@root=lvroot" size="2500M" mountpoint="/" />
+      </systemdisk>
+    </type>
+  </preferences>
+  <packages type="image" patternType="plusRecommended" profiles="SBC-Odroid-M1">
+    <package name="NetworkManager-wifi"/>
+    <package name="bash-completion"/>
+    <package name="chrony"/>
+    <package name="cloud-utils-growpart"/>
+    <package name="dosfstools"/>
+    <package name="dracut"/>
+    <package name="dracut-config-rescue"/>
+    <package name="dracut-network"/>
+    <package name="e2fsprogs"/>
+    <package name="efibootmgr"/>
+    <package name="glibc-all-langpacks"/>
+    <package name="grub2-tools"/>
+    <package name="grub2-tools-minimal"/>
+    <package name="kernel"/>
+    <package name="kernel-core"/>
+    <package name="langpacks-en"/>
+    <package name="lvm2"/>
+    <package name="microdnf"/>
+    <package name="nano"/>
+    <package name="net-tools"/>
+    <package name="rng-tools"/>
+    <package name="systemd-udev"/>
+    <package name="tar"/>
+    <package name="util-linux"/>
+    <package name="vim"/>
+    <package name="wget"/>
+    <package name="zram-generator"/>
+    <ignore name="java-11-*"/>
+  </packages>
+</image>

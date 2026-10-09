@@ -1,0 +1,42 @@
+<image>
+  <profiles>
+    <profile name="KDE-Desktop" description="KDE Desktop">
+      <requires profile="Live-Base"/>
+    </profile>
+  </profiles>
+  <!-- <preferences profiles="KDE-Desktop">
+    <type image="iso" publisher="Rocky Enterprise Software Foundation" volid="Rocky-10-KDE" application_id="Rocky-10-KDE" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="true">
+      <bootloader name="grub2" grub_template="grub.tmpl" console="console" timeout="10"/>
+    </type>
+  </preferences> -->
+  <packages type="image" patternType="plusRecommended" profiles="KDE-Desktop">
+    <package name="epel-release"/>
+    <namedCollection name="internet-browser"/>
+    <namedCollection name="kde-desktop-environment"/>
+    <namedCollection name="kde-apps"/>
+    <namedCollection name="kde-media"/>
+    <!-- <package name="libreoffice-calc"/>
+    <package name="libreoffice-emailmerge" arch="x86_64"/>
+    <package name="libreoffice-graphicfilter"/>
+    <package name="libreoffice-impress"/>
+    <package name="libreoffice-writer"/> -->
+    <package name="fuse"/>
+    <package name="mariadb-connector-c"/>
+    <package name="mariadb-server"/>
+    <package name="rocky-backgrounds-kde"/>
+    <package name="plasma-login-manager"/>
+    <package name="kcm-plasmalogin"/>
+    <!-- ignores for space and other things -->
+    <ignore name="desktop-backgrounds-basic"/>
+    <ignore name="gnome-disk-utility"/>
+    <ignore name="hplip"/>
+    <ignore name="iok"/>
+    <ignore name="isdn4k-utils"/>
+    <ignore name="kdeaccessibility"/>
+    <ignore name="mpage"/>
+    <ignore name="system-config-printer"/>
+    <ignore name="system-config-services"/>
+    <ignore name="system-config-users"/>
+    <ignore name="xsane"/>
+  </packages>
+</image>

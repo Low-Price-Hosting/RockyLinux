@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.4" name="Rocky">
+  <description type="system">
+    <author>Release Engineering (SIG/Core)</author>
+    <contact>releng@rockylinux.org</contact>
+    <specification>Rocky Linux</specification>
+  </description>
+  <preferences>
+    <version>10</version>
+    <packagemanager>dnf</packagemanager>
+    <locale>en_US</locale>
+    <keytable>us</keytable>
+    <timezone>UTC</timezone>
+    <release-version>10</release-version>
+  </preferences>
+  <include from="this://./repositories/core.xml"/>
+  <include from="this://./repositories/altarch-common.xml"/>
+  <include from="this://./repositories/gnulab-tmp.xml"/>
+  <include from="this://./components/boot.xml"/>
+  <include from="this://./components/users.xml"/>
+  <include from="this://./sbc/pi.xml"/>
+  <include from="this://./components/bootstrap.xml"/>
+</image>

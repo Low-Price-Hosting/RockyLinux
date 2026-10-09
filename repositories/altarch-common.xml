@@ -1,0 +1,13 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="sig-altarch-common" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/altarch/$basearch/altarch-common">
+      <signing key="https://git.rockylinux.org/staging/src/rocky-release-altarch/-/raw/r10/SOURCES/RPM-GPG-KEY-Rocky-SIG-AltArch"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="sig-altarch-rockyrpi" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/altarch/$basearch/altarch-rockyrpi">
+      <signing key="https://git.rockylinux.org/staging/src/rocky-release-altarch/-/raw/r10/SOURCES/RPM-GPG-KEY-Rocky-SIG-AltArch"/>
+    </source>
+  </repository>
+</image>

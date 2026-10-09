@@ -1,0 +1,87 @@
+<image>
+  <profiles>
+    <profile name="Core-Riscv" description="Pi Base Packages">
+      <requires profile="Core-Boot"/>
+    </profile>
+    <profile name="SBC-RISCV" description="Riscv Image">
+      <requires profile="Core-Riscv"/>
+    </profile>
+    <profile name="SBC-QEMU" description="RISC-V QEMU image">
+      <requires profile="Core-Riscv"/>
+    </profile>
+    <profile name="SBC-VisionFive2" description="StarFive VisionFive2 image">
+      <requires profile="Core-Riscv"/>
+    </profile>
+  </profiles>
+  <preferences profiles="SBC-RISCV" arch="riscv64">
+    <type image="oem"
+      disk_start_sector="65536"
+      filesystem="ext4"
+      kernelcmdline="earlycon console=ttyS0,115200n8"
+      devicepersistency="by-uuid"
+      bootpartition="true" bootpartsize="1024" bootfilesystem="ext4" efipartsize="300" firmware="uefi"
+      rootfs_label="rocky"
+      >
+      <bootloader name="grub2" console="serial" timeout="0" timeout_style="hidden"/>
+      <size unit="G">3</size>
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+        <oem-skip-verify>true</oem-skip-verify>
+        <oem-swap>false</oem-swap>
+        <oem-swapsize>512</oem-swapsize>
+      </oemconfig>
+    </type>
+</preferences>
+  <preferences profiles="SBC-QEMU,SBC-VisionFive2" arch="riscv64">
+    <!-- Leave space before the first partition for board firmware. -->
+    <type image="oem" filesystem="ext4" firmware="uefi"
+      disk_start_sector="65536" bundle_format="tar.xz"
+      bootpartition="true" bootpartsize="1024" bootfilesystem="ext4"
+      efipartsize="300" devicepersistency="by-uuid" rootfs_label="rocky"
+      kernelcmdline="console=ttyS0,115200n8 earlycon=sbi rootwait"
+      editbootconfig="bootloader-no-probe.sh">
+      <bootloader name="grub2" console="serial" timeout="5" bls="true"/>
+      <size unit="G">4</size>
+      <oemconfig>
+        <oem-resize>false</oem-resize>
+        <oem-swap>false</oem-swap>
+      </oemconfig>
+    </type>
+  </preferences>
+  <packages type="image" patternType="plusRecommended" profiles="Core-Riscv">
+    <namedCollection name="core"/>
+    <package name="rocky-release"/>
+    <package name="bash-completion"/>
+    <package name="chrony"/>
+    <package name="cloud-utils-growpart"/>
+    <ignore name="kernel-tools"/>
+    <package name="langpacks-en"/>
+    <package name="glibc-all-langpacks"/>
+    <package name="net-tools"/>
+    <package name="nano"/>
+    <package name="NetworkManager-wifi"/>
+    <package name="rng-tools"/>
+    <package name="vim"/>
+    <package name="dracut-config-generic"/>
+  </packages>
+  <packages type="image" patternType="plusRecommended" profiles="SBC-RISCV,SBC-QEMU,SBC-VisionFive2">
+    <package name="dracut-config-generic"/>
+    <package name="efibootmgr"/>
+    <package name="systemd-udev"/>
+    <package name="uboot-images-riscv64"/>
+    <package name="uboot-tools"/>
+    <ignore name="dracut-config-rescue"/>
+    <ignore name="java-11-*"/>
+  </packages>
+  <packages type="image" profiles="SBC-QEMU,SBC-VisionFive2">
+    <package name="kernel"/>
+    <package name="openssh-server"/>
+    <package name="sudo"/>
+  </packages>
+  <packages type="image" profiles="SBC-QEMU">
+    <package name="qemu-guest-agent"/>
+  </packages>
+  <packages type="image" profiles="SBC-VisionFive2">
+    <package name="rocky-sbc-utils"/>
+  </packages>
+</image>
