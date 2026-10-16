@@ -1,0 +1,44 @@
+Rocky Linux 10 SBC-Generic (RISC-V)
+
+This image is intended for RISC-V SBCs, including the StarFive VisionFive2,
+and can also be used in QEMU. It uses ext4 and includes cloud-utils-growpart.
+The root filesystem doesn't expand automatically when you boot from a
+larger disk or SD card.
+
+Expanding the root filesystem
+----------------------------
+
+First, check which partition contains your root filesystem:
+
+    findmnt -no SOURCE,FSTYPE /
+    lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS
+
+The commands below assume that / is ext4 on /dev/vda3 and that partition
+3 is the last partition on /dev/vda. Check your output before continuing;
+your device names may differ. The disk must already have unused space
+after the root partition. In QEMU, enlarge the virtual disk first; on a
+VisionFive2, write the image to an SD card larger than the image.
+
+Preview the partition change without writing it:
+
+    sudo growpart -N /dev/vda 3
+
+Then grow the partition and the filesystem, in that order:
+
+    sudo growpart /dev/vda 3
+    sudo resize2fs /dev/vda3
+
+growpart takes the whole disk and a separate partition number.
+resize2fs takes the root partition. If your root is /dev/mmcblk0p3,
+use /dev/mmcblk0 3 for growpart and /dev/mmcblk0p3 for resize2fs.
+You can resize this mounted ext4 filesystem without rebooting.
+
+If growpart reports NOCHANGE, the partition may already fill the disk.
+Check lsblk again. If the partition has already grown, resize2fs can
+still expand the filesystem to fill it.
+
+Check the result:
+
+    df -h /
+
+The available space should now reflect the larger disk or SD card.

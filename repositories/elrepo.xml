@@ -1,0 +1,12 @@
+<image>
+  <repository type="rpm-md" alias="elrepo" priority="2">
+    <source path="http://elrepo.org/linux/elrepo/el10/$basearch/">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-v2-elrepo.org"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="elrepo-kernel" priority="2">
+    <source path="http://elrepo.org/linux/kernel/el10/$basearch/">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-v2-elrepo.org"/>
+    </source>
+  </repository>
+</image>

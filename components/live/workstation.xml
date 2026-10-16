@@ -1,0 +1,27 @@
+<image>
+  <profiles>
+    <profile name="Workstation-Desktop" description="Workstation Desktop">
+      <requires profile="Live-Base"/>
+    </profile>
+  </profiles>
+  <!-- <preferences profiles="Workstation-Desktop">
+    <type image="iso" publisher="Rocky Enterprise Software Foundation" volid="Rocky-10-Workstation" application_id="Rocky-10-Workstation" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="true">
+      <bootloader name="grub2" grub_template="grub.tmpl" console="console" timeout="10"/>
+    </type>
+  </preferences> -->
+  <packages type="image" patternType="plusRecommended" profiles="Workstation-Desktop">
+    <namedCollection name="gnome-desktop"/>
+    <namedCollection name="internet-browser"/>
+    <namedCollection name="networkmanager-submodules"/>
+    <namedCollection name="workstation-product"/>
+    <!-- No longer packaged, still here as a reference -->
+    <!-- <package name="libreoffice-calc"/>
+    <package name="libreoffice-emailmerge" arch="x86_64"/>
+    <package name="libreoffice-graphicfilter"/>
+    <package name="libreoffice-impress"/>
+    <package name="libreoffice-writer"/> -->
+    <!-- ignores for space and other things -->
+    <ignore name="gfs2-utils"/>
+    <ignore name="reiserfs-utils"/>
+  </packages>
+</image>
