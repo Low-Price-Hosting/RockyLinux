@@ -1,0 +1,6 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="sig-cloud-common-testing" priority="5" package_gpgcheck="false">
+    <source path="https://yumrepofs.build.resf.org/v1/projects/0e3d85ed-ca12-47af-8279-739625e33268/repo/cloud-common/$basearch"/>
+  </repository>
+</image>

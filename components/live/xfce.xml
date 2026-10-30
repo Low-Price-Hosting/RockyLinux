@@ -1,0 +1,77 @@
+<image>
+  <profiles>
+    <profile name="XFCE-Desktop" description="XFCE Desktop">
+      <requires profile="Live-Base"/>
+    </profile>
+  </profiles>
+  <preferences profiles="XFCE-Desktop">
+    <type image="iso" publisher="Rocky Enterprise Software Foundation" volid="Rocky-10-XFCE" application_id="Rocky-10-XFCE" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="true">
+      <bootloader name="grub2" grub_template="grub.tmpl" console="console" timeout="10"/>
+    </type>
+  </preferences>
+  <packages type="image" patternType="plusRecommended" profiles="XFCE-Desktop">
+    <!-- Equivalent to @xfce-desktop nodefaults -->
+    <package name="Thunar"/>
+    <package name="xfce4-panel"/>
+    <package name="xfce4-session"/>
+    <package name="xfce4-settings"/>
+    <package name="xfconf"/>
+    <package name="xfdesktop"/>
+    <package name="xfwm4"/>
+    <package name="epel-release"/>
+    <package name="firefox"/>
+    <package name="firewall-config"/>
+    <package name="gjs"/>
+    <package name="gparted"/>
+    <package name="gparted"/>
+    <package name="lightdm"/>
+    <package name="network-manager-applet"/>
+    <package name="openssh-askpass"/>
+    <package name="pavucontrol"/>
+    <package name="pcp-selinux"/>
+    <package name="rocky-backgrounds"/>
+    <package name="rocky-backgrounds-compat"/>
+    <package name="rocky-release"/>
+    <package name="seahorse"/>
+    <package name="thunar-archive-plugin"/>
+    <package name="thunar-volman"/>
+    <package name="thunderbird"/>
+    <package name="tumbler"/>
+    <package name="wget"/>
+    <package name="xdg-user-dirs"/>
+    <package name="xdg-user-dirs-gtk"/>
+    <package name="xfce-polkit"/>
+    <package name="xfce4-about"/>
+    <package name="xfce4-appfinder"/>
+    <package name="xfce4-datetime-plugin"/>
+    <package name="xfce4-netload-plugin"/>
+    <package name="xfce4-notifyd"/>
+    <package name="xfce4-panel-profiles"/>
+    <package name="xfce4-power-manager"/>
+    <package name="xfce4-screensaver"/>
+    <package name="xfce4-screenshooter-plugin"/>
+    <package name="xfce4-smartbookmark-plugin"/>
+    <package name="xfce4-systemload-plugin"/>
+    <package name="xfce4-taskmanager"/>
+    <package name="xfce4-terminal"/>
+    <package name="xfce4-time-out-plugin"/>
+    <package name="xfce4-weather-plugin"/>
+    <package name="xfce4-whiskermenu-plugin"/>
+    <!-- ignores for space and other things -->
+    <ignore name="acpid"/>
+    <ignore name="aspell-*"/>
+    <ignore name="autofs"/>
+    <ignore name="desktop-backgrounds-basic"/>
+    <ignore name="gdm"/>
+    <ignore name="gimp-help"/>
+    <ignore name="gnome-shell"/>
+    <ignore name="hplip"/>
+    <ignore name="isdn4k-utils"/>
+    <ignore name="mpage"/>
+    <ignore name="sane-backends"/>
+    <ignore name="xfce4-eyes-plugin"/>
+    <ignore name="xfce4-sensors-plugin"/>
+    <ignore name="xsane"/>
+    <ignore name="xsane-gimp"/>
+  </packages>
+</image>

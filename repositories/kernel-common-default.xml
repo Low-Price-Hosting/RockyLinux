@@ -1,0 +1,12 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="sig-kernel-drivers" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/kernel/$basearch/kernel-drivers"/>
+  </repository>
+  <repository type="rpm-md" alias="sig-kernel-mainline" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/kernel/$basearch/kernel-mainline"/>
+  </repository>
+  <repository type="rpm-md" alias="sig-kernel-lts" priority="5">
+    <source path="http://dl.rockylinux.org/stg/sig/$releasever/kernel/$basearch/kernel-lts"/>
+  </repository>
+</image>

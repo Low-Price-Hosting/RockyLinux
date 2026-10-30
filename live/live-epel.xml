@@ -1,0 +1,24 @@
+<image>
+  <profiles>
+    <profile name="Cinnamon-Live" description="Rocky Linux Cinnamon">
+      <requires profile="Live-Base"/>
+      <requires profile="Cinnamon-Desktop"/>
+    </profile>
+    <profile name="KDE-Live" description="Rocky Linux KDE">
+      <requires profile="Live-Base"/>
+      <requires profile="KDE-Desktop"/>
+    </profile>
+    <profile name="MATE-Live" description="Rocky Linux MATE">
+      <requires profile="Live-Base"/>
+      <requires profile="MATE-Desktop"/>
+    </profile>
+    <profile name="XFCE-Live" description="Rocky Linux XFCE">
+      <requires profile="Live-Base"/>
+      <requires profile="XFCE-Desktop"/>
+    </profile>
+  </profiles>
+  <packages type="bootstrap" patternType="plusRecommended" profiles="Cinnamon-Live,KDE-Live,MATE-Live,XFCE-Live">
+    <package name="rocky-release"/>
+    <package name="epel-release"/>
+  </packages>
+</image>

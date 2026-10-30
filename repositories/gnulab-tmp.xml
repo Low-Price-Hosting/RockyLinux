@@ -1,0 +1,9 @@
+<!-- There isn't a way to exclude packages from a certain repo -->
+<image>
+  <repository type="rpm-md" alias="gnulab_tmp_1" priority="1">
+    <source path="https://rockyrepos.gnulab.org/gen_aarch64_el$releasever/"/>
+  </repository>
+  <repository type="rpm-md" alias="gnulab_tmp_2" priority="1">
+    <source path="https://rockyrepos.gnulab.org/rpir$releasever/"/>
+  </repository>
+</image>

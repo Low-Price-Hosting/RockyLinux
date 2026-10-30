@@ -1,0 +1,3 @@
+#!/bin/sh
+# anaconda does this technically.
+gawk -i inplace '$2 == "/boot/efi" { $4 = $4",umask=0077,shortname=winnt" } { print $0 }' /etc/fstab
