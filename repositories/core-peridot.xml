@@ -1,0 +1,22 @@
+<image>
+  <repository type="rpm-md" alias="baseos" priority="1">
+    <source path="ZZ_INTERNAL_BaseOS_REPO_URL_ZZ">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="appstream" priority="1">
+    <source path="ZZ_INTERNAL_AppStream_REPO_URL_ZZ">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="crb" priority="1">
+    <source path="ZZ_INTERNAL_CRB_REPO_URL_ZZ">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="extras" priority="1">
+    <source path="ZZ_INTERNAL_extras_REPO_URL_ZZ">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+</image>

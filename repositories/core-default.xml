@@ -1,0 +1,22 @@
+<image>
+  <repository type="rpm-md" alias="baseos" priority="1">
+    <source path="https://download.rockylinux.org/stg/rocky/$releasever/BaseOS/$basearch/os">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="appstream" priority="1">
+    <source path="https://download.rockylinux.org/stg/rocky/$releasever/AppStream/$basearch/os">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="crb" priority="1">
+    <source path="https://download.rockylinux.org/stg/rocky/$releasever/CRB/$basearch/os">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+  <repository type="rpm-md" alias="extras" priority="1">
+    <source path="https://download.rockylinux.org/stg/rocky/$releasever/extras/$basearch/os">
+      <signing key="file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-$releasever"/>
+    </source>
+  </repository>
+</image>

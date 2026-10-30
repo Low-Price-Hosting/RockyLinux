@@ -1,0 +1,85 @@
+<image>
+  <profiles>
+    <profile name="Cinnamon-Desktop" description="Cinnamon Desktop">
+      <requires profile="Live-Base"/>
+    </profile>
+  </profiles>
+  <preferences profiles="Cinnamon-Desktop">
+    <type image="iso" publisher="Rocky Enterprise Software Foundation" volid="Rocky-9-Cinnamon" application_id="Rocky-9-Cinnamon" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="true">
+      <bootloader name="grub2" grub_template="grub.tmpl" console="console" timeout="10"/>
+    </type>
+  </preferences>
+  <packages type="image" patternType="plusRecommended" profiles="Cinnamon-Desktop">
+    <package name="epel-release"/>
+    <package name="libreoffice-calc"/>
+    <package name="libreoffice-emailmerge" arch="x86_64"/>
+    <package name="libreoffice-graphicfilter"/>
+    <package name="libreoffice-impress"/>
+    <package name="libreoffice-writer"/>
+    <package name="NetworkManager-adsl"/>
+    <package name="NetworkManager-bluetooth"/>
+    <package name="NetworkManager-l2tp-gnome"/>
+    <package name="NetworkManager-libreswan-gnome"/>
+    <package name="NetworkManager-openconnect-gnome"/>
+    <package name="NetworkManager-openvpn-gnome"/>
+    <package name="NetworkManager-ppp"/>
+    <package name="NetworkManager-pptp-gnome"/>
+    <package name="NetworkManager-wifi"/>
+    <package name="NetworkManager-wwan"/>
+    <package name="cinnamon"/>
+    <package name="cinnamon-control-center"/>
+    <package name="cinnamon-screensaver"/>
+    <package name="eom"/>
+    <package name="f36-backgrounds-extras-gnome"/>
+    <package name="f36-backgrounds-gnome"/>
+    <package name="f37-backgrounds-extras-gnome"/>
+    <package name="f37-backgrounds-gnome"/>
+    <package name="firefox"/>
+    <package name="firewall-config"/>
+    <package name="gjs"/>
+    <package name="gnome-calculator"/>
+    <package name="gnome-disk-utility"/>
+    <package name="gnome-screenshot"/>
+    <package name="gnome-system-monitor"/>
+    <package name="gnome-terminal"/>
+    <package name="gstreamer1-plugins-ugly-free"/>
+    <package name="gvfs-gphoto2"/>
+    <package name="gvfs-mtp"/>
+    <package name="gvfs-smb"/>
+    <package name="hexchat" arch="x86_64"/>
+    <package name="imsettings-systemd"/>
+    <package name="initial-setup-gui"/>
+    <package name="lightdm"/>
+    <package name="metacity"/>
+    <package name="nemo-fileroller"/>
+    <package name="nemo-image-converter"/>
+    <package name="nemo-preview"/>
+    <package name="nm-connection-editor"/>
+    <package name="parole"/>
+    <package name="pipewire-alsa"/>
+    <package name="pipewire-pulseaudio"/>
+    <package name="powerline"/>
+    <package name="redshift-gtk"/>
+    <package name="rocky-backgrounds"/>
+    <package name="sane-backends-drivers-scanners"/>
+    <package name="setroubleshoot"/>
+    <package name="slick-greeter"/>
+    <package name="slick-greeter-cinnamon"/>
+    <package name="thunderbird"/>
+    <package name="tmux"/>
+    <package name="tmux-powerline"/>
+    <package name="transmission"/>
+    <package name="vim-enhanced"/>
+    <package name="vim-powerline"/>
+    <package name="wireplumber"/>
+    <package name="xdg-user-dirs-gtk"/>
+    <package name="xed"/>
+    <package name="xreader"/>
+    <!-- ignores for space and other things -->
+    <ignore name="isdn4k-utils"/>
+    <ignore name="hplip"/>
+    <ignore name="mpage"/>
+    <ignore name="xsane"/>
+    <ignore name="xsane-gimp"/>
+  </packages>
+</image>

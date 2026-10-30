@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.4" name="Rocky">
+  <description type="system">
+    <author>Release Engineering (SIG/Core)</author>
+    <contact>releng@rockylinux.org</contact>
+    <specification>Rocky Linux</specification>
+  </description>
+  <preferences>
+    <version>9</version>
+    <packagemanager>dnf</packagemanager>
+    <locale>en_US</locale>
+    <keytable>us</keytable>
+    <timezone>UTC</timezone>
+    <release-version>9</release-version>
+  </preferences>
+  <include from="this://./repositories/core.xml"/>
+  <include from="this://./repositories/sig-core.xml"/>
+  <!-- <include from="this://./repositories/centos-kmods.xml"/> -->
+  <!-- research if these should be on for everything in general
+    would leaving these on affect what's pulled? original kickstarts used
+    would stick with our repos until the OCP images.
+  <include from="this://./repositories/oracle.xml"/>
+  <include from="this://./repositories/cloud-common.xml"/>
+  <include from="this://./repositories/kernel-common.xml"/>
+  -->
+  <!-- Components -->
+  <include from="this://./components/boot.xml"/>
+  <include from="this://./components/users.xml"/>
+  <include from="this://./components/live/common.xml"/>
+  <include from="this://./components/live/xfce.xml"/>
+  <!-- Cloud -->
+  <include from="this://./cloud/cloud.xml"/>
+  <!-- Vagrant -->
+  <include from="this://./vagrant/vagrant.xml"/>
+  <!-- Containers -->
+  <include from="this://./container/container.xml"/>
+  <!-- Live -->
+  <include from="this://./live/live.xml"/>
+  <include from="this://./live/live-epel.xml"/>
+  <include from="this://./wsl/wsl.xml"/>
+  <include from="this://./components/bootstrap.xml"/>
+</image>

@@ -1,0 +1,15 @@
+<image>
+  <profiles>
+    <profile name="Workstation-Live" description="Rocky Linux Workstation">
+      <requires profile="Live-Base"/>
+      <requires profile="Workstation-Desktop"/>
+    </profile>
+    <profile name="Workstation-Lite-Live" description="Rocky Linux Workstation-Lite">
+      <requires profile="Live-Base"/>
+      <requires profile="Workstation-Lite-Desktop"/>
+    </profile>
+  </profiles>
+  <packages type="bootstrap" patternType="plusRecommended" profiles="Workstation-Live">
+    <package name="rocky-release"/>
+  </packages>
+</image>

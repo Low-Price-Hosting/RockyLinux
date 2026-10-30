@@ -1,0 +1,22 @@
+<image>
+  <profiles>
+    <profile name="Workstation-Lite-Desktop" description="Workstation-Lite Desktop">
+      <requires profile="Live-Base"/>
+    </profile>
+  </profiles>
+  <preferences profiles="Workstation-Lite-Desktop">
+    <type image="iso" publisher="Rocky Enterprise Software Foundation" volid="Rocky-9-Workstation-Lite" application_id="Rocky-9-Workstation-Lite" primary="true" flags="dmsquash" firmware="uefi" kernelcmdline="quiet rhgb" mediacheck="true">
+      <bootloader name="grub2" grub_template="grub.tmpl" console="console" timeout="10"/>
+    </type>
+  </preferences>
+  <packages type="image" patternType="plusRecommended" profiles="Workstation-Lite-Desktop">
+    <namedCollection name="gnome-desktop"/>
+    <namedCollection name="internet-browser"/>
+    <namedCollection name="networkmanager-submodules"/>
+    <package name="libreoffice-calc"/>
+    <package name="libreoffice-writer"/>
+    <!-- ignores for space and other things -->
+    <ignore name="gfs2-utils"/>
+    <ignore name="reiserfs-utils"/>
+  </packages>
+</image>
